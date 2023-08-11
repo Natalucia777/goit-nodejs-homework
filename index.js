@@ -10,19 +10,17 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
 
     case "get":
       const oneBook = await contacts.getContactById(id);
-      console.log(oneBook);
+        console.log(oneBook);
       break;
 
     case "add":
       const contacts2 = await contacts.addContact({ name, email, phone });
-      const allContacts1 = await contacts.listContacts();
-      console.table(allContacts1);
+      console.log(contacts2);
       break;
 
     case "remove":
       const contacts3 = await contacts.removeContact(id);
-      const allContacts2 = await contacts.listContacts();
-      console.table(allContacts2);
+      console.table(contacts3);
       break;
 
     default:
@@ -40,5 +38,4 @@ program
 program.parse(process.argv);
 
 const argv = program.opts();
-
 invokeAction(argv);
